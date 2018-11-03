@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PagesController@index');
+
+Route::get('/page-0/{typeOfLandscape?}/{name?}',
+      function ($typeOfLandscape = null, $name = null) {
+    return 'page-0 ' . $name . ': ' .
+      'I like ' . $typeOfLandscape .
+      ' landscapes.';
+});
+
+Route::get('/page-1', function () {
+    return view('pages.page-1');
+});
+
+Route::get('/about', function () {
+    return view('pages.about');
 });
